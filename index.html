@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex</title>
+</head>
+<body>
+
+    <p id="story">
+        'I can't believe it,' she said. 'It's such a beautiful day.'
+    </p>
+
+
+    
+
+    <script>
+
+        // Get the text content of the paragraph
+        var story = document.getElementById('story').textContent;
+
+        // Use regular expressions to replace single quotes around dialogue
+        // while keeping single quotes used in contractions
+        var updatedStory = story.replace(/'([^']+)'/g, '"$1"');
+
+        // Update the paragraph with the modified text
+        document.getElementById('story').textContent = updatedStory;
+
+
+
+ 
+
+ /* // Sample text with single quotation marks for dialogue and contractions
+let text = "She said, 'I can't do it.' He replied, 'Aren't you coming?'";
+
+// Replace single quotes used for dialogue with double quotes
+text = text.replace(/'([^']+)'/g, '"$1"');
+
+console.log(text);
+ */
+
+    </script>
+    
+</body>
+</html>
