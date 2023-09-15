@@ -11,6 +11,7 @@
     <p id="story">
         'I can't believe it,' she said. 'It's such a beautiful day.'
     </p>
+    <button onclick="replace()"> Click here </button>
 
 
     
@@ -22,13 +23,17 @@
 
         // Use regular expressions to replace single quotes around dialogue
         // while keeping single quotes used in contractions
+        function replace(){
+
+
+       
         var updatedStory = story.replace(/'([^']+)'/g, '"$1"');
 
         // Update the paragraph with the modified text
         document.getElementById('story').textContent = updatedStory;
 
 
-
+        }
  
 
  /* // Sample text with single quotation marks for dialogue and contractions
