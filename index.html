@@ -8,15 +8,36 @@
 </head>
 <body>
 
+    Exercise 2: 
     <p id="story">
         'I can't believe it,' she said. 'It's such a beautiful day.'
     </p>
     <button onclick="replace()"> Click here </button>
 
 
+   <p> ---------------------------------------------- </p>
     
+    Exercise 3
 
+    <p id="ex3">
+      I love golf and golf is cool
+    </p>
+
+    <button onclick="golf()"> Click here </button>
+
+
+  
     <script>
+
+          let exp = document.getElementById('ex3').textContent
+
+          function golf() {
+            let pattern = /golf, cool/
+            let result = pattern.exec(exp)
+
+            document.getElementById('ex3').textContent = result;
+
+          }
 
         // Get the text content of the paragraph
         var story = document.getElementById('story').textContent;
@@ -36,14 +57,7 @@
         }
  
 
- /* // Sample text with single quotation marks for dialogue and contractions
-let text = "She said, 'I can't do it.' He replied, 'Aren't you coming?'";
 
-// Replace single quotes used for dialogue with double quotes
-text = text.replace(/'([^']+)'/g, '"$1"');
-
-console.log(text);
- */
 
     </script>
     
