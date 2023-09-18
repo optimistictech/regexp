@@ -8,6 +8,34 @@
 </head>
 <body>
 
+    Exercise 1: 
+    
+
+
+    <h1>Regular Expression Tester</h1>
+    <form>
+        <label for="testString">Enter a test string:</label>
+        <input type="text" id="testString" name="testString">
+        <button type="button" onclick="testRegex()">Test</button>
+    </form>
+
+    <div id="results">
+        <h2>Results:</h2>
+        <ul>
+            <li><strong>1. Match "car" or "cat":</strong> <span id="result1"></span></li>
+            <li><strong>2. Match "pop" or "prop":</strong> <span id="result2"></span></li>
+            <li><strong>3. Match "ferret," "ferry," or "ferrari":</strong> <span id="result3"></span></li>
+            <li><strong>4. Match any word ending in "ious":</strong> <span id="result4"></span></li>
+            <li><strong>5. Match a whitespace character followed by a period, comma, colon, or semicolon:</strong> <span id="result5"></span></li>
+            <li><strong>6. Match a word longer than six letters:</strong> <span id="result6"></span></li>
+            <li><strong>7. Match a word without the letter "e" (or "E"): </strong> <span id="result7"></span></li>
+        </ul>
+    </div>
+
+    <p> ---------------------------------------------- </p>
+
+
+
     Exercise 2: 
     <p id="story">
         'I can't believe it,' she said. 'It's such a beautiful day.'
@@ -19,25 +47,50 @@
     
     Exercise 3
 
-    <p id="ex3">
-      I love golf and golf is cool
-    </p>
 
-    <button onclick="golf()"> Click here </button>
 
+    <form>
+      <label for="numberInput">Enter a JavaScript-style number:</label>
+      <input type="text" id="numberInput" placeholder="e.g., -5, 1.23, 5e-3">
+  </form>
+  <p id="result"></p>
+
+
+  
+
+  
 
   
     <script>
 
-          let exp = document.getElementById('ex3').textContent
+         // exercise 1
 
-          function golf() {
-            let pattern = /golf, cool/
-            let result = pattern.exec(exp)
+         function testRegex() {
+            const testString = document.getElementById("testString").value;
+            const results = document.getElementById("results");
 
-            document.getElementById('ex3').textContent = result;
+            // Regular expressions
+            const regex1 = /ca[rt]/;
+            const regex2 = /pr?op/;
+            const regex3 = /ferr(et|y|ari)/;
+            const regex4 = /\w+ious\b/;
+            const regex5 = /\s[.,;:]/;
+            const regex6 = /\w{7,}/;
+            const regex7 = /\b[^eE]+\b/;
 
-          }
+            // Test and display results
+            document.getElementById("result1").textContent = regex1.test(testString);
+            document.getElementById("result2").textContent = regex2.test(testString);
+            document.getElementById("result3").textContent = regex3.test(testString);
+            document.getElementById("result4").textContent = regex4.test(testString);
+            document.getElementById("result5").textContent = regex5.test(testString);
+            document.getElementById("result6").textContent = regex6.test(testString);
+            document.getElementById("result7").textContent = regex7.test(testString);
+        }
+
+
+
+          // exercise 2 
 
         // Get the text content of the paragraph
         var story = document.getElementById('story').textContent;
@@ -55,6 +108,27 @@
 
 
         }
+
+
+        // exercise 3 
+
+        const numberInput = document.getElementById("numberInput");
+        const result = document.getElementById("result");
+
+        numberInput.addEventListener("input", () => {
+            const inputText = numberInput.value;
+            const regex = /^[+-]?\d*\.?\d+(?:[eE][+-]?\d+)?$/;
+            if (regex.test(inputText)) {
+                result.textContent = "Valid JavaScript-style number!";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Not a valid JavaScript-style number!";
+                result.style.color = "red";
+            }
+        });
+
+
+        
  
 
 
